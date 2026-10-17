@@ -17,11 +17,18 @@ let tokenHeader = null
 let mainTestUser = null
 
 before(async () => {
-  if (mongoose.connection.readyState !== 1) {
-    await new Promise((resolve) => {
-      mongoose.connection.once('connected', resolve)
-    })
+  if (mongoose.connection.readyState === 1) return
+
+  if (mongoose.connection.readyState === 0) {
+    const config = require('../utils/config')
+    await mongoose.connect(config.MONGODB_URI, { family: 4 })
+    return
   }
+
+  await new Promise((resolve, reject) => {
+    mongoose.connection.once('connected', resolve)
+    mongoose.connection.once('error', reject)
+  })
 })
 
 beforeEach(async () => {
