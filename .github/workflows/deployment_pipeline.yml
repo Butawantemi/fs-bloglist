@@ -28,9 +28,9 @@ jobs:
         env:
           TEST_MONGODB_URI: ${{ secrets.TEST_MONGODB_URI }}
           SECRET: "test_jwt_secret_key"
-        run: npm test -w server
+        run: npm run test -w server
       - name: Cliet Tests
-        run: npm test -w cliet
+        run: npm run test -w cliet
 
   deploy:
     needs: [build_and_tests]
