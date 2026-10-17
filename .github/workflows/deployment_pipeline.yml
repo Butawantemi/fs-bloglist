@@ -18,15 +18,19 @@ jobs:
           node-version: "20"
       - name: Install dependencies
         run: npm install --legacy-peer-deps
-      - name: Check Style
+      - name: Check server style
         run: npm run lint -w server
+      - name: Check cliet style
+        run: npm run lint -w client
       - name: Build
         run: npm run build
-      - name: Run Server Tests
+      - name: Server Tests
         env:
           TEST_MONGODB_URI: ${{ secrets.TEST_MONGODB_URI }}
           SECRET: "test_jwt_secret_key"
-        run: npm test -w server
+        run: npm run test -w server
+      - name: Cliet Tests
+        run: npm run test -w client
 
   deploy:
     needs: [build_and_tests]
