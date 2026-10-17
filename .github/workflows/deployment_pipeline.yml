@@ -21,7 +21,7 @@ jobs:
       - name: Check server style
         run: npm run lint -w server
       - name: Check cliet style
-        run: npm run lint -w cliet
+        run: npm run lint -w client
       - name: Build
         run: npm run build
       - name: Server Tests
@@ -30,7 +30,7 @@ jobs:
           SECRET: "test_jwt_secret_key"
         run: npm run test -w server
       - name: Cliet Tests
-        run: npm run test -w cliet
+        run: npm run test -w client
 
   deploy:
     needs: [build_and_tests]
