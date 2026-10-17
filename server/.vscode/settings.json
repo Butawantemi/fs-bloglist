@@ -17,5 +17,5 @@
 
 // 3. Keep Prettier as the default formatter for ALL other languages (HTML, CSS, JSON, etc.)
 "editor.defaultFormatter": "esbenp.prettier-vscode",
-"editor.formatOnSave": true
+"editor.formatOnSave": false
 }

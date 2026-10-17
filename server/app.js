@@ -23,6 +23,10 @@ app.use(express.static('dist'))
 app.use(middleware.requestLogger)
 app.use(middleware.tokenExtractor)
 
+app.get('/health', (req, res) => {
+  res.send('ok')
+})
+
 app.use('/api/blogs', blogsRouter)
 app.use('/api/users', usersRouter)
 app.use('/api/login', loginRouter)

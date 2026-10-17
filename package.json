@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "npm run test -w server",
+    "lint": "npm run lint -w server",
     "build": "npm run build -w client",
     "start": "npm run start -w server"
   },
