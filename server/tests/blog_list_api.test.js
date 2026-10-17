@@ -1,5 +1,5 @@
 const assert = require('node:assert')
-const { test, beforeAll, beforeEach, after, describe } = require('node:test')
+const { test, before, beforeEach, after, describe } = require('node:test')
 const mongoose = require('mongoose')
 const bcrypt = require('bcrypt')
 const supertest = require('supertest')
@@ -16,7 +16,7 @@ const api = supertest(app)
 let tokenHeader = null
 let mainTestUser = null
 
-beforeAll(async () => {
+before(async () => {
   if (mongoose.connection.readyState !== 1) {
     await new Promise((resolve) => {
       mongoose.connection.once('connected', resolve)
