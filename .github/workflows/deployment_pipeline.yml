@@ -20,6 +20,7 @@ jobs:
         run: npm install --legacy-peer-deps
       - name: Check Style
         run: npm run lint -w server
+        run: npm run lint -w cliet
       - name: Build
         run: npm run build
       - name: Run Server Tests
