@@ -16,7 +16,7 @@ test('Blog information and likes are shown to unauthenticated users, buttons are
 
   expect(screen.getByText(/First blog post!/)).toBeDefined()
   expect(screen.getByText(/Japhet Paul/)).toBeDefined()
-  expect(screen.getByText(/likes 12/)).toBeDefined()
+  expect(screen.getByText(/12 likes/)).toBeDefined()
 
   expect(screen.queryByText('like')).toBeNull()
   expect(screen.queryByText('remove')).toBeNull()

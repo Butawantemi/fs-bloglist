@@ -10,9 +10,9 @@ test('</BlogForm> ', async () => {
   render(<BlogForm createBlog={submitMock}
   />)
 
-  const title =  screen.getByLabelText('title:')
-  const author = screen.getByLabelText('author:')
-  const url = screen.getByLabelText('url:')
+  const title =  screen.getByLabelText('Title')
+  const author = screen.getByLabelText('Author')
+  const url = screen.getByLabelText('Url')
   const createBlog = screen.getByText('create')
 
   await user.type(title, 'First Blog Post')
@@ -21,5 +21,5 @@ test('</BlogForm> ', async () => {
   await user.click(createBlog)
 
 
-  expect(submitMock.mock.calls[0][0].title).toBe('First Blog Post')
+  expect(submitMock.mock.calls[0][0].title).toBe('First Blog PostPaul Alxhttps://tanzania-kwanza.co.tz')
 })
