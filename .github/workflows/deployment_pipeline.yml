@@ -24,7 +24,8 @@ jobs:
         run: npm run build
       - name: Run Server Tests
         env:
-          MONGODB_URI: ${{ secrets.TEST_MONGODB_URI }}
+          TEST_MONGODB_URI: ${{ secrets.TEST_MONGODB_URI }}
+          SECRET: "test_jwt_secret_key"
         run: npm test -w server
 
   deploy:
